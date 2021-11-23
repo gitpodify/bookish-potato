@@ -1,6 +1,6 @@
 # Change the image tag below into what's Andrei Jiroh and our buildbots say, replacing id below
 # with your merge request ID.
-image: quay.io/recaptime-dev/gitpod-workspace-images-artifacts:gl-gitpodify-gitpod-workspace-images-mr-id
+image: quay.io/recaptime-dev/gitpod-workspace-images-artifacts:c61317c0-868a-453c-9365-d6423cf94457
 
 # Feel free to modify them all as needed! IDK i this is abuse in their TOS.
 tasks:
