@@ -1,0 +1,16 @@
+# Change the image tag below into what's Andrei Jiroh and our buildbots say, replacing id below
+# with your merge request ID.
+image: quay.io/recaptime-dev/gitpod-workspace-images-artifacts:gl-gitpodify-gitpod-workspace-images-mr-id
+
+# Feel free to modify them all as needed! IDK i this is abuse in their TOS.
+tasks:
+  - name: Install some brews
+    init: brew install kubectl helm okteto railwayapp/railway/railway gh glab hadolint shellcheck
+    command: exit 0
+  - name: Clone some cursed repositories
+    init: |
+      mkdir repos
+      git clone https://github.com/gitpod-io/workspace-images ./repos/ws-images-upstream
+      git clone https://gitlab.com/gitpodify/gitpod-workspace-images ./repos/gitpodified-workspace-images
+      git clone --branch master https://gitlab.com/gitlab-org/gitlab-foss ./repos/gitlab-ce
+      git clone https://github.com/gitpod-io/gitpod ./repos/gitpod-oss
