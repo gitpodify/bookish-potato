@@ -7,7 +7,10 @@ First, fork this repository using these links to get started, depending on which
 
 ## How this works? - Gitpodified Workspace Images
 
-1. Right after creating an merge request or pushing coommits to your fork's source branch, copy the following command to trigger an build. If the build doesn't shows up after 10-20 minutes, check your merge request's latest pipelines and drill down the pipeline ID our bots provided if things start to break. (Please do noit spam the command below to avoid rate-limiting chaos.)
+1. Right after creating an merge request or pushing coommits to your fork's source branch, copy the following command to trigger an build. If the build doesn't shows up after ~120 or so minutes[^1],
+check your merge request's latest pipelines and drill down the pipeline ID our bots provided if things start to break. (Please do noit spam the command below to avoid rate-limiting chaos.)
+
+[^1]: The `ws-full:build` job takes appox. 78 minutes to build without any caching using `cache-from` flag before it was implemented in January 2022.
 
 ```markdown
 <!-- Check if processed at https://recaptime-workspace-images-artifacts-hook.builtwithdark.com/gitlab/pipelines -->
@@ -34,6 +37,8 @@ image: quay.io/gitpodied-workspace-images/build-artifacts:gl-gitpodify-gitpod-wo
 ```yml
 # Technically, check your conversation with the ws-images reviewer of your merge request for the tag name.
 image: gitpod/workspace-full:branch-pr-123
+# For example in https://github.com/gitpod-io/workspace-images/pull/354#issuecomment-785066574,
+# image: 
 ```
 
 3. Commit to an seperate branch, usually in form of `gitpod-io/test-pr-<id>` and open that branch in Gitpod.
