@@ -7,16 +7,18 @@ First, fork this repository using these links to get started, depending on which
 
 ## How this works? - Gitpodified Workspace Images
 
-1. Right after creating an merge request or pushing coommits to your fork's source branch, copy the following command to trigger an build. If the build doesn't shows up after 10-20 minutes, check <https://recaptime-workspace-images-artifacts-hook.builtwithdark.com/gitlab/pipelines> and drill down the pipeline ID our bots provided if things start to break. (Please do noit spam the command below to avoid rate-limiting chaos.)
+1. Right after creating an merge request or pushing coommits to your fork's source branch, copy the following command to trigger an build. If the build doesn't shows up after 10-20 minutes, check your merge request's latest pipelines and drill down the pipeline ID our bots provided if things start to break. (Please do noit spam the command below to avoid rate-limiting chaos.)
 
-```
+```markdown
+<!-- Check if processed at https://recaptime-workspace-images-artifacts-hook.builtwithdark.com/gitlab/pipelines -->
 @RecapTimeBot rebuild image
 ```
 
 2. Change line 3 of your `.gitpod.yml`, replacing `id` with the merge request ID (e.g. `1234` if your merge request ID is `1234`).
 
 ```yml
-image: quay.io/recaptime-dev/gitpod-workspace-images-artifacts:gl-gitpodify-gitpod-workspace-images-mr-1234
+# If you prefer artifact IDs, check the build logs.
+image: quay.io/gitpodied-workspace-images/build-artifacts:gl-gitpodify-gitpod-workspace-images-mr-1234
 ```
 
 3. Commit to an seperate branch, usually in form of `gitpodify/test-pr-<id>` and open that branch in Gitpod.
@@ -30,6 +32,7 @@ image: quay.io/recaptime-dev/gitpod-workspace-images-artifacts:gl-gitpodify-gitp
 2. Change line 3 of your `.gitpod.yml`, replacing `quay.io/recaptime-dev/gitpod-workspace-images-artifacts:gl-gitpodify-gitpod-workspace-images-mr-id` with the following format where `123` is your pull request ID.
 
 ```yml
+# Technically, check your conversation with the ws-images reviewer of your merge request for the tag name.
 image: gitpod/workspace-full:branch-pr-123
 ```
 
